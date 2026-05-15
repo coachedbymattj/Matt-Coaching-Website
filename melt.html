@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MELT · The Method · CoachedByMattJ</title>
+<meta name="description" content="MELT. A 12-week structured group coaching program for adults who already know how to train." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* MELT distinct identity within the brand */
+  .melt-hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 180px 0 80px;
+    overflow: hidden;
+    text-align: center;
+  }
+  .melt-hero-glow {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1100px;
+    height: 1100px;
+    background: radial-gradient(circle, rgba(77, 221, 176, 0.18) 0%, rgba(208, 112, 224, 0.10) 35%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .melt-mark {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(80px, 16vw, 200px);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 0.85;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .melt-tagline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+  }
+  .melt-sub {
+    font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--text-soft);
+    max-width: 580px;
+    margin: 0 auto 50px;
+    position: relative;
+    z-index: 1;
+  }
+  .melt-cta-row {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .btn-primary {
+    background: var(--gradient);
+    color: var(--bg);
+    padding: 16px 32px;
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .btn-primary:hover { opacity: 0.92; }
+  .btn-ghost {
+    color: var(--white);
+    padding: 16px 32px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .what-grid p { font-size: 18px; line-height: 1.75; }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--hairline);
+    border-left: 1px solid var(--hairline);
+  }
+  .pillar {
+    padding: 36px 28px;
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pillar-num {
+    font-family: 'Fraunces', serif;
+    font-size: 12px;
+    color: var(--mint);
+    margin-bottom: 16px;
+    font-style: italic;
+    letter-spacing: 0.1em;
+  }
+  .pillar h3 { font-size: 18px; margin-bottom: 12px; font-weight: 500; }
+  .pillar p { font-size: 14px; color: var(--text-soft); margin: 0; line-height: 1.6; }
+
+  .weeks {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .week {
+    padding: 32px 28px;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    background: var(--bg-elev);
+  }
+  .week-tag {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--purple);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .week h3 { font-size: 20px; margin-bottom: 12px; font-weight: 500; }
+  .week p { font-size: 14px; color: var(--text-soft); margin: 0; }
+
+  .signup-card {
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    padding: 60px 50px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(208, 112, 224, 0.05) 0%, rgba(77, 221, 176, 0.03) 100%);
+    position: relative;
+  }
+  .signup-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--gradient);
+  }
+  .signup-card h2 { margin-bottom: 20px; }
+  .signup-card p { font-size: 17px; color: var(--text-soft); max-width: 520px; margin: 0 auto 32px; }
+
+  .signup-meta {
+    display: inline-flex;
+    gap: 32px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+  .signup-meta strong {
+    color: var(--white);
+    font-weight: 500;
+    background: none;
+    -webkit-text-fill-color: var(--white);
+  }
+
+  .form-stub {
+    margin-top: 24px;
+    padding: 32px;
+    border: 1px dashed var(--hairline-strong);
+    border-radius: 2px;
+    color: var(--text-faint);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 860px) {
+    .what-grid { grid-template-columns: 1fr; gap: 32px; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .weeks { grid-template-columns: 1fr; }
+    .signup-card { padding: 40px 28px; }
+  }
+  @media (max-width: 560px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">CoachedBy<span class="accent">MattJ</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="who.html">Who I am</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="melt.html" class="melt active">MELT</a></li>
+      <li><a href="portal.html" class="portal">Portal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="melt-hero">
+  <div class="melt-hero-glow"></div>
+  <div class="container">
+    <div class="melt-mark">MELT</div>
+    <div class="melt-tagline">The method, in a cohort.</div>
+    <p class="melt-sub">A 12-week structured group coaching program for adults who already know how to train. Built for the next layer of progress.</p>
+    <div class="melt-cta-row">
+      <a href="#signup" class="btn-primary">Join the next cohort</a>
+      <a href="#what" class="btn-ghost">What is MELT</a>
+    </div>
+  </div>
+</header>
+
+<section id="what">
+  <div class="container reveal">
+    <div class="section-label">What MELT is</div>
+    <div class="what-grid">
+      <h2 class="tight">A program for people who do <em>not</em> need motivation. They need structure.</h2>
+      <div>
+        <p>MELT is for the trainer who has plateaued, the lifter who has lost the thread, the person who has done the work but cannot crack the next level alone.</p>
+        <p>It is not a beginner program. It is not a transformation. It is the <strong>same method I use 1:1</strong>, delivered in a cohort that holds you accountable to the long arc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container reveal">
+    <div class="section-label">The four pillars</div>
+    <h2 class="tight">What the program is built on.</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">Pillar 01</div>
+        <h3>Strength.</h3>
+        <p>Foundational lifts, intelligently progressed. The non-negotiable base.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 02</div>
+        <h3>Capacity.</h3>
+        <p>Conditioning that supports the strength work rather than fights it.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 03</div>
+        <h3>Recovery.</h3>
+        <p>The work between the work. Sleep, nutrition, decompression.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">Pillar 04</div>
+        <h3>Habit.</h3>
+        <p>The architecture that makes the rest of it survive a real life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-elev);">
+  <div class="container reveal">
+    <div class="section-label">The 12 weeks</div>
+    <h2 class="tight">How the cohort runs.</h2>
+    <div class="weeks">
+      <div class="week">
+        <div class="week-tag">Weeks 1 to 4</div>
+        <h3>Foundations.</h3>
+        <p>Reset position, dial in execution, build the base. Less load, more attention.</p>
+      </div>
+      <div class="week">
+        <div class="week-tag">Weeks 5 to 8</div>
+        <h3>Build.</h3>
+        <p>Progressive overload, capacity work, habit consolidation. The middle block does most of the heavy lifting.</p>
+      </div>
+      <div class="week">
+        <div class="week-tag">Weeks 9 to 12</div>
+        <h3>Express.</h3>
+        <p>Peak the work, measure the change, hand you a method you can take with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="signup">
+  <div class="container reveal">
+    <div class="signup-card">
+      <div class="section-label center" style="margin-bottom: 16px;">Join MELT</div>
+      <h2 class="tight">The next cohort opens soon.</h2>
+      <p>Limited intake. Application based to keep the cohort tight and the work high quality.</p>
+
+      <div class="signup-meta">
+        <div><strong>12 weeks</strong> · structured</div>
+        <div><strong>Cohort</strong> · small group</div>
+        <div><strong>By application</strong> · not first come</div>
+      </div>
+
+      <a href="#" class="btn-primary">Start your application</a>
+
+      <div class="form-stub">
+        Sign-up form embeds here · your coaching-app intake link will live in this CTA
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="logo">CoachedBy<span class="accent">MattJ</span></div>
+    <ul class="footer-socials">
+      <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:hello@coachedbymattj.com">Email</a></li>
+      <li><a href="portal.html">Portal</a></li>
+    </ul>
+    <div class="footer-meta">© 2026 CoachedByMattJ. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

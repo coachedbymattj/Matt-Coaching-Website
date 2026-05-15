@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reviews · CoachedByMattJ</title>
+<meta name="description" content="Read what clients say. Verified Google reviews for CoachedByMattJ." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .google-strip {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg, rgba(208, 112, 224, 0.03) 0%, rgba(77, 221, 176, 0.02) 100%);
+  }
+  .rating-number {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 500;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .stars {
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: var(--purple);
+  }
+  .rating-meta {
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+  .google-strip .quiet-link { margin-top: 0; margin-left: auto; }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .review {
+    padding: 36px;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    background: var(--bg-elev);
+    position: relative;
+  }
+  .review-stars {
+    color: var(--purple);
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  .review-text {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .review-author {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-weight: 500;
+  }
+  @media (max-width: 720px) {
+    .review-grid { grid-template-columns: 1fr; }
+    .google-strip .quiet-link { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">CoachedBy<span class="accent">MattJ</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="who.html">Who I am</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="melt.html" class="melt">MELT</a></li>
+      <li><a href="portal.html" class="portal">Portal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="container page-hero-inner">
+    <div class="page-eyebrow">Reviews</div>
+    <h1>What clients actually <em>say</em>.</h1>
+    <p class="lede">Verified through Google. The full thread, unedited, lives on the platform itself.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container reveal">
+    <div class="google-strip">
+      <div class="rating-number">5.0</div>
+      <div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-meta">Based on <strong>48 Google reviews</strong></div>
+      </div>
+      <a href="#" class="quiet-link" target="_blank" rel="noopener"><span>Read all on Google</span><span class="arrow">→</span></a>
+    </div>
+
+    <div class="review-grid">
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Working with Matt has been the single best decision I have made for my training in ten years. He pays attention to detail no other coach has come close to.</p>
+        <div class="review-author">Sarah K.</div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I have worked with three coaches before Matt. None of them came close. The programming is intelligent and the communication is what makes the difference.</p>
+        <div class="review-author">David R.</div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Matt does not sell you anything. He just delivers the work, week after week, and you end up somewhere you did not know was possible.</p>
+        <div class="review-author">James M.</div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I joined the MELT program a year ago. It changed how I think about training entirely. I am stronger, leaner, and not exhausted.</p>
+        <div class="review-author">Emma T.</div>
+      </div>
+    </div>
+
+    <div class="stub-note">Will wire up to live Google reviews · placeholder content for now</div>
+  </div>
+</section>
+
+<section style="text-align: center;">
+  <div class="narrow reveal">
+    <div class="section-label center">Next</div>
+    <h2>See how the coaching works.</h2>
+    <a href="services.html" class="quiet-link"><span>Services</span><span class="arrow">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="logo">CoachedBy<span class="accent">MattJ</span></div>
+    <ul class="footer-socials">
+      <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:hello@coachedbymattj.com">Email</a></li>
+      <li><a href="portal.html">Portal</a></li>
+    </ul>
+    <div class="footer-meta">© 2026 CoachedByMattJ. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

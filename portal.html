@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portal · CoachedByMattJ</title>
+<meta name="description" content="The CoachedByMattJ member portal. Tools, lead magnets, and your profile in one place." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .auth-strip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 24px 28px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    margin-bottom: 60px;
+    background: linear-gradient(180deg, rgba(208, 112, 224, 0.04) 0%, rgba(77, 221, 176, 0.02) 100%);
+  }
+  .auth-strip .label {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-weight: 600;
+  }
+  .auth-strip .actions { margin-left: auto; display: flex; gap: 12px; flex-wrap: wrap; }
+  .auth-btn {
+    padding: 12px 22px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .auth-btn.primary {
+    background: var(--gradient);
+    border-color: transparent;
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .auth-btn:hover:not(.primary) { border-color: var(--purple); color: var(--purple); }
+  .auth-btn.primary:hover { opacity: 0.92; }
+
+  .profile-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 28px;
+    align-items: center;
+    padding: 36px;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    background: var(--bg-elev);
+    margin-bottom: 50px;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .profile-name {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .profile-meta {
+    font-size: 14px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+  }
+  .profile-edit {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-top: 14px;
+    display: inline-block;
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 4px;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .tool {
+    aspect-ratio: 1;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    padding: 28px;
+    background: var(--bg-elev);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .tool:hover {
+    border-color: var(--purple);
+    transform: translateY(-2px);
+  }
+  .tool.coming {
+    background: transparent;
+    cursor: default;
+    opacity: 0.5;
+  }
+  .tool.coming:hover {
+    border-color: var(--hairline);
+    transform: none;
+  }
+  .tool-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 2px;
+    background: rgba(208, 112, 224, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--purple);
+  }
+  .tool.coming .tool-icon {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-faint);
+  }
+  .tool h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .tool p {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin: 0;
+    line-height: 1.55;
+  }
+  .tool-status {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mint);
+    font-weight: 600;
+  }
+  .tool.coming .tool-status { color: var(--text-faint); }
+
+  @media (max-width: 860px) {
+    .tools-grid { grid-template-columns: 1fr 1fr; }
+    .profile-card { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    .auth-strip .actions { margin-left: 0; width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">CoachedBy<span class="accent">MattJ</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="who.html">Who I am</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="melt.html" class="melt">MELT</a></li>
+      <li><a href="portal.html" class="portal active">Portal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="container page-hero-inner">
+    <div class="page-eyebrow">Portal · Working title</div>
+    <h1>Your <em>tools</em>, in one place.</h1>
+    <p class="lede">A members area for clients and curious visitors. Lead magnets, trackers, and your profile. Built to grow.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container reveal">
+
+    <div class="auth-strip">
+      <div>
+        <div class="label">Account</div>
+        <div style="font-size: 15px; color: var(--text-soft); margin-top: 6px;">Sign in to save your progress and unlock the tools.</div>
+      </div>
+      <div class="actions">
+        <a href="#" class="auth-btn">Log in</a>
+        <a href="#" class="auth-btn primary">Create account</a>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="avatar">M</div>
+      <div>
+        <div class="profile-name">Your name here</div>
+        <div class="profile-meta">Member since · Plan · Cohort</div>
+        <a href="#" class="profile-edit">Edit profile</a>
+      </div>
+    </div>
+
+    <div class="section-label">The Toolkit</div>
+    <h2 class="tight" style="margin-bottom: 32px;">Nine tools, slowly filling in.</h2>
+
+    <div class="tools-grid">
+
+      <div class="tool">
+        <div class="tool-status">Live</div>
+        <div class="tool-icon">●</div>
+        <div>
+          <h3>The Panic Button</h3>
+          <p>The reset tool I built. Use it when the wheels come off a week.</p>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-status">Live</div>
+        <div class="tool-icon">▦</div>
+        <div>
+          <h3>Macro Calculator</h3>
+          <p>Quick starting point for daily intake. Built on the framework I use with clients.</p>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-status">Live</div>
+        <div class="tool-icon">◷</div>
+        <div>
+          <h3>Timeframe Tracker</h3>
+          <p>Plan the realistic timeline of a goal. Stop chasing speed at the cost of progress.</p>
+        </div>
+      </div>
+
+      <div class="tool coming">
+        <div class="tool-status">Soon</div>
+        <div class="tool-icon">+</div>
+        <div>
+          <h3>Tool four</h3>
+          <p>Coming soon.</p>
+        </div>
+      </div>
+
+      <div class="tool coming">
+        <div class="tool-status">Soon</div>
+        <div class="tool-icon">+</div>
+        <div>
+          <h3>Tool five</h3>
+          <p>Coming soon.</p>
+        </div>
+      </div>
+
+      <div class="tool coming">
+        <div class="tool-status">Soon</div>
+        <div class="tool-icon">+</div>
+        <div>
+          <h3>Tool six</h3>
+          <p>Coming soon.</p>
+        </div>
+      </div>
+
+      <div class="tool coming">
+        <div class="tool-status">Soon</div>
+        <div class="tool-icon">+</div>
+        <div>
+          <h3>Tool seven</h3>
+          <p>Coming soon.</p>
+        </div>
+      </div>
+
+      <div class="tool coming">
+        <div class="tool-status">Soon</div>
+        <div class="tool-icon">+</div>
+        <div>
+          <h3>Tool eight</h3>
+          <p>Coming soon.</p>
+        </div>
+      </div>
+
+      <div class="tool coming">
+        <div class="tool-status">Soon</div>
+        <div class="tool-icon">+</div>
+        <div>
+          <h3>Tool nine</h3>
+          <p>Coming soon.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stub-note">UI only · auth and tool wiring will come in a later phase</div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="logo">CoachedBy<span class="accent">MattJ</span></div>
+    <ul class="footer-socials">
+      <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:hello@coachedbymattj.com">Email</a></li>
+      <li><a href="portal.html">Portal</a></li>
+    </ul>
+    <div class="footer-meta">© 2026 CoachedByMattJ. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

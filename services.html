@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services · CoachedByMattJ</title>
+<meta name="description" content="Three ways to work with Matt. 1:1 Online, MELT Group Coaching, and 1:1 In Person." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .service {
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    padding: 44px 36px;
+    background: var(--bg-elev);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .service:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-2px);
+  }
+  .service.featured {
+    border-color: var(--hairline-strong);
+  }
+  .service.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--gradient);
+    opacity: 0.8;
+  }
+  .service-tag {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .service.featured .service-tag {
+    color: var(--mint);
+  }
+  .service h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .service-sub {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px;
+    border-top: 1px solid var(--hairline);
+  }
+  .service-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 14px;
+    color: var(--text-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .service-features li::before {
+    content: '+';
+    color: var(--purple);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .service-price {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .service-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .service-cta:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+  }
+  .service.featured .service-cta {
+    background: var(--gradient);
+    border-color: transparent;
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .service.featured .service-cta:hover {
+    color: var(--bg);
+    opacity: 0.92;
+  }
+  @media (max-width: 960px) {
+    .service-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">CoachedBy<span class="accent">MattJ</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="who.html">Who I am</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="melt.html" class="melt">MELT</a></li>
+      <li><a href="portal.html" class="portal">Portal</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="container page-hero-inner">
+    <div class="page-eyebrow">Services</div>
+    <h1>Three ways <em>to work</em> with me.</h1>
+    <p class="lede">All three share the same method. They differ in how close I get, how the schedule runs, and how much you want me in your week.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container reveal">
+    <div class="service-grid">
+
+      <div class="service">
+        <div class="service-tag">Service 01</div>
+        <h3>1:1 Online Coaching</h3>
+        <p class="service-sub">Fully personal programming, weekly check-ins, direct line to me. The full method, delivered remotely.</p>
+        <ul class="service-features">
+          <li>Bespoke weekly programming</li>
+          <li>Video form reviews</li>
+          <li>Direct messaging access</li>
+          <li>Nutrition and recovery framework</li>
+        </ul>
+        <div class="service-price">Long-term engagement</div>
+        <a href="#" class="service-cta">Apply</a>
+      </div>
+
+      <div class="service featured">
+        <div class="service-tag">Service 02 · Flagship</div>
+        <h3>MELT Group Coaching</h3>
+        <p class="service-sub">My structured group program. Same method, intentionally smaller price point. Cohort-based with a real community around it.</p>
+        <ul class="service-features">
+          <li>Structured 12-week protocol</li>
+          <li>Group coaching calls</li>
+          <li>Private community</li>
+          <li>Foundations for the long arc</li>
+        </ul>
+        <div class="service-price">Cohort intake on the MELT page</div>
+        <a href="melt.html" class="service-cta">See MELT</a>
+      </div>
+
+      <div class="service">
+        <div class="service-tag">Service 03</div>
+        <h3>1:1 In Person</h3>
+        <p class="service-sub">For the few I can take face-to-face. Highest touch. Hands-on coaching, in the room, on the floor.</p>
+        <ul class="service-features">
+          <li>In-person sessions</li>
+          <li>Everything in the online tier</li>
+          <li>Limited availability</li>
+          <li>By application only</li>
+        </ul>
+        <div class="service-price">Waitlist usually open</div>
+        <a href="#" class="service-cta">Enquire</a>
+      </div>
+
+    </div>
+
+    <div class="stub-note">Sign-up links go to your coaching-app forms · drop them in when ready</div>
+  </div>
+</section>
+
+<section style="background: var(--bg-elev);">
+  <div class="narrow reveal" style="text-align: center;">
+    <div class="section-label center">Not sure which fits</div>
+    <h2>The honest answer is in a short conversation.</h2>
+    <p class="lede">No sales call. Just five minutes to point you to the right one, or to tell you it is not the right fit.</p>
+    <a href="mailto:hello@coachedbymattj.com" class="quiet-link"><span>Get in touch</span><span class="arrow">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="logo">CoachedBy<span class="accent">MattJ</span></div>
+    <ul class="footer-socials">
+      <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:hello@coachedbymattj.com">Email</a></li>
+      <li><a href="portal.html">Portal</a></li>
+    </ul>
+    <div class="footer-meta">© 2026 CoachedByMattJ. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
