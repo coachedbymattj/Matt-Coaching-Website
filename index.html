@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CoachedByMattJ — Premium Online Fitness Coaching</title>
+<meta name="description" content="Premium online fitness coaching with Matt J. Sustainable strength, considered method, long-term results." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0B0B0F;
+    --bg-elev: #111118;
+    --text: rgba(255, 255, 255, 0.88);
+    --text-soft: rgba(255, 255, 255, 0.6);
+    --text-faint: rgba(255, 255, 255, 0.4);
+    --white: #ffffff;
+    --purple: #D070E0;
+    --mint: #4DDDB0;
+    --hairline: rgba(255, 255, 255, 0.08);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --gradient: linear-gradient(135deg, #D070E0 0%, #4DDDB0 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--white);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  strong, b { color: var(--purple); font-weight: 600; }
+
+  a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .narrow {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 22px 0;
+    background: rgba(11, 11, 15, 0.7);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+  .logo .accent {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 38px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-soft);
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.melt {
+    color: var(--white);
+    position: relative;
+  }
+  .nav-links a.melt::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--gradient);
+    opacity: 0.7;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 140px 0 80px;
+    overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(208, 112, 224, 0.18) 0%, rgba(77, 221, 176, 0.06) 40%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 84px);
+    font-weight: 400;
+    margin-bottom: 28px;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--text-soft);
+    max-width: 580px;
+    margin: 0 auto 56px;
+    font-weight: 300;
+  }
+  .scroll-cue {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-faint);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .scroll-cue:hover { color: var(--white); }
+  .scroll-cue-line {
+    width: 1px;
+    height: 40px;
+    background: var(--hairline-strong);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-cue-line::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: var(--gradient);
+    animation: scrollLine 2.4s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { top: -40px; }
+    100% { top: 40px; }
+  }
+
+  /* ---------- SECTION BASE ---------- */
+  section {
+    padding: 130px 0;
+    position: relative;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 28px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gradient);
+  }
+  h2 {
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+  h2 em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .lede {
+    font-size: 20px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 26px;
+    font-weight: 300;
+  }
+  p { margin-bottom: 22px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- STORY ---------- */
+  .story p {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+  .quiet-link {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--white);
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 4px;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .quiet-link:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* ---------- PRINCIPLES ---------- */
+  .principles { border-top: 1px solid var(--hairline); }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--hairline);
+    border-left: 1px solid var(--hairline);
+  }
+  .principle {
+    padding: 48px 40px;
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+  }
+  .principle-number {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .principle h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .principle p {
+    font-size: 15px;
+    color: var(--text-soft);
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* ---------- WHO ---------- */
+  .who { background: var(--bg-elev); }
+  .who p { font-size: 19px; line-height: 1.75; }
+
+  /* ---------- MELT PREVIEW ---------- */
+  .melt-preview {
+    position: relative;
+    overflow: hidden;
+  }
+  .melt-card {
+    border: 1px solid var(--hairline-strong);
+    border-radius: 2px;
+    padding: 70px 60px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(208, 112, 224, 0.04) 0%, rgba(77, 221, 176, 0.02) 100%);
+  }
+  .melt-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient);
+    opacity: 0.7;
+  }
+  .melt-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mint);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .melt-card h2 {
+    font-size: clamp(36px, 5vw, 56px);
+    margin-bottom: 24px;
+  }
+  .melt-card p {
+    font-size: 18px;
+    color: var(--text-soft);
+    max-width: 580px;
+    margin-bottom: 32px;
+  }
+  .melt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 6px;
+  }
+  .melt-link:hover { border-color: var(--mint); }
+  .melt-link .arrow { transition: transform 0.2s ease; }
+  .melt-link:hover .arrow { transform: translateX(4px); }
+
+  /* ---------- QUOTES ---------- */
+  .quotes { border-top: 1px solid var(--hairline); }
+  .quote-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+  }
+  blockquote {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    border: 0;
+    padding: 0;
+    position: relative;
+  }
+  blockquote::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gradient);
+    margin-bottom: 24px;
+  }
+  cite {
+    display: block;
+    margin-top: 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ---------- CLOSE ---------- */
+  .close { text-align: center; padding-bottom: 160px; }
+  .close p { font-size: 19px; color: var(--text-soft); }
+  .close-links {
+    display: inline-flex;
+    gap: 40px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .close-links a {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 6px;
+    font-weight: 500;
+  }
+  .close-links a:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 50px 0;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-meta {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+  }
+  .footer-socials {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .footer-socials a {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    font-weight: 500;
+  }
+  .footer-socials a:hover { color: var(--purple); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px) {
+    .principles-grid { grid-template-columns: 1fr; }
+    .quote-list { grid-template-columns: 1fr; gap: 48px; }
+    section { padding: 90px 0; }
+    .melt-card { padding: 50px 32px; }
+    .container, .narrow { padding: 0 24px; }
+  }
+  @media (max-width: 640px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(11, 11, 15, 0.97);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 24px 32px 32px;
+      gap: 20px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+    .hero { padding: 120px 0 60px; }
+  }
+
+  /* fade-in on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">CoachedBy<span class="accent">MattJ</span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="melt.html" class="melt">MELT</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">Online Coaching &nbsp;·&nbsp; Est. by Matt J</div>
+    <h1>Coaching shaped by<br/>the <em>work</em>, not the trend.</h1>
+    <p class="hero-sub">Years in the gym. Years getting it wrong. What is left is a method built for people who want results that hold.</p>
+    <a href="#about" class="scroll-cue">
+      <span>The story</span>
+      <span class="scroll-cue-line"></span>
+    </a>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="story" id="about">
+  <div class="narrow reveal">
+    <div class="section-label">The story</div>
+    <h2>I did not start out as a coach.<br/>I started out as the <em>client</em> who needed one.</h2>
+    <p class="lede">For a long time I trained the way most people do. Hard, inconsistent, chasing the next thing. Some of it worked. A lot of it did not.</p>
+    <p>The shift came when I stopped looking for shortcuts and started paying attention to <strong>what actually compounds</strong>. Sleep. Tension. Position. Recovery. The boring fundamentals that nobody sells you because they cannot be packaged.</p>
+    <p>Coaching, for me, is the work of getting other people to the same place faster than I got there. Without the years of wasted effort. Without the noise.</p>
+    <a href="#" class="quiet-link">Read the full story</a>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="principles">
+  <div class="container">
+    <div class="reveal" style="max-width: 760px;">
+      <div class="section-label">What I believe</div>
+      <h2>Three things I will not compromise on.</h2>
+    </div>
+    <div class="principles-grid reveal">
+      <div class="principle">
+        <div class="principle-number">01</div>
+        <h3>Sustainable over extreme.</h3>
+        <p>Anyone can crush a client for six weeks. The real test is whether the work is still standing in a year. I coach for the long arc, not the before-and-after.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-number">02</div>
+        <h3>Strength as the foundation.</h3>
+        <p>Strength is what every other quality is built on. Conditioning, aesthetics, longevity, resilience. Skip it and the rest is sand.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-number">03</div>
+        <h3>The body is a long project.</h3>
+        <p>The version of you in ten years is being built right now, in small decisions. The job of a coach is to make those decisions easier, not louder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who" id="coaching">
+  <div class="narrow reveal">
+    <div class="section-label">Who this is for</div>
+    <h2>I work with a specific kind of person.</h2>
+    <p class="lede">Adults who have trained before. Who have hit a ceiling, lost the thread, or want a method that takes them seriously.</p>
+    <p>People who are <strong>done with gimmicks</strong>. Who do not need motivation, they need a plan that fits their life and a coach who pays attention. Who would rather get one thing right for a decade than ten things wrong for a season.</p>
+    <p>If that sounds like you, the coaching page is where the detail lives.</p>
+    <a href="#" class="quiet-link">See how coaching works</a>
+  </div>
+</section>
+
+<!-- MELT -->
+<section class="melt-preview">
+  <div class="container reveal">
+    <div class="melt-card">
+      <div class="melt-eyebrow">The MELT Method</div>
+      <h2>A program for the people who already <em>know how to train</em>.</h2>
+      <p>MELT is the structured 12-week protocol I built for clients who have outgrown generic programming. It has its own page, its own logic, and its own waitlist.</p>
+      <a href="melt.html" class="melt-link">
+        <span>Explore MELT</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes">
+  <div class="container">
+    <div class="reveal" style="max-width: 760px;">
+      <div class="section-label">In their words</div>
+      <h2>Two clients. Two long projects.</h2>
+    </div>
+    <div class="quote-list reveal">
+      <blockquote>
+        Matt is the first coach who has ever made me feel like the long game was the point. I am stronger than I have been in my life and I am not burned out for the first time in years.
+        <cite>— S.K., client of 2 years</cite>
+      </blockquote>
+      <blockquote>
+        I came in wanting to lose weight. I left understanding my body. The weight was almost a side effect.
+        <cite>— D.R., client of 14 months</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="contact">
+  <div class="narrow reveal">
+    <div class="section-label" style="justify-content: center;">If any of this lands</div>
+    <h2>Keep looking around.</h2>
+    <p>No pitch. No countdown. If the work resonates, the next steps are here when you are ready.</p>
+    <div class="close-links">
+      <a href="#about">About</a>
+      <a href="#coaching">Coaching</a>
+      <a href="melt.html">MELT</a>
+      <a href="mailto:hello@coachedbymattj.com">Contact</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="logo">CoachedBy<span class="accent">MattJ</span></div>
+    <ul class="footer-socials">
+      <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="mailto:hello@coachedbymattj.com">Email</a></li>
+    </ul>
+    <div class="footer-meta">© 2026 CoachedByMattJ. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
