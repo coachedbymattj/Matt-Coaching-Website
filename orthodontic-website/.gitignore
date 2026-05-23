@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+
+# local preview / tooling artifacts (not part of the site)
+preview-*.png
+shot.cjs
+test.cjs
